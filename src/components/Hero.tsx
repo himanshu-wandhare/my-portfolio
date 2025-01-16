@@ -1,6 +1,7 @@
 import { GithubIcon, LinkedinIcon, MailIcon } from "lucide-react";
 import { motion } from "framer-motion";
-import { WavyBackground } from "./ui/wavy-background";
+// import { WavyBackground } from "./ui/wavy-background";
+import { Boxes } from "./ui/background-boxes";
 
 const Hero = () => {
     const containerVariants = {
@@ -52,20 +53,24 @@ const Hero = () => {
     };
 
     return (
-        <WavyBackground
-            className="min-h-screen max-w-4xl mx-auto flex items-center justify-center text-white"
-            colors={["#FF61D8", "#7E69AB", "#4CC9F0", "#4361EE", "#7209B7"]}
-            waveOpacity={0.4}
-            backgroundFill="#0f172a"
-        >
+        // <WavyBackground
+        //     className="min-h-screen max-w-4xl mx-auto flex items-center justify-center text-white"
+        //     colors={["#FF61D8", "#7E69AB", "#4CC9F0", "#4361EE", "#7209B7"]}
+        //     waveOpacity={0.4}
+        //     backgroundFill="#0f172a"
+        // >
+        <div className="min-h-screen relative w-full overflow-hidden bg-slate-900 flex flex-col items-center justify-center">
+            <div className="absolute inset-0 w-full h-full bg-slate-900 z-20 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
+            <Boxes />
+
             <motion.div
-                className="max-w-4xl mx-auto text-center"
+                className="max-w-4xl mx-auto text-center text-white"
                 variants={containerVariants}
                 initial="hidden"
                 animate="visible"
             >
                 <motion.h1
-                    className="text-4xl md:text-6xl font-bold mb-6"
+                    className="text-4xl md:text-6xl font-bold mb-6 relative z-20"
                     variants={itemVariants}
                     whileHover="hover"
                 >
@@ -73,7 +78,7 @@ const Hero = () => {
                 </motion.h1>
 
                 <motion.p
-                    className="text-xl md:text-2xl mb-8 text-gray-200"
+                    className="text-xl md:text-2xl mb-8 text-gray-200 relative z-20"
                     variants={itemVariants}
                     whileHover="hover"
                 >
@@ -81,7 +86,7 @@ const Hero = () => {
                 </motion.p>
 
                 <motion.div
-                    className="flex justify-center gap-4"
+                    className="flex justify-center gap-4 relative z-20"
                     variants={itemVariants}
                 >
                     <motion.a
@@ -116,7 +121,7 @@ const Hero = () => {
                     </motion.a>
                 </motion.div>
             </motion.div>
-        </WavyBackground>
+        </div>
     );
 };
 
