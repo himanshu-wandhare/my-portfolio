@@ -1,5 +1,6 @@
 import { GithubIcon, LinkedinIcon, MailIcon } from "lucide-react";
 import { motion } from "framer-motion";
+import { WavyBackground } from "./ui/wavy-background";
 
 const Hero = () => {
     const containerVariants = {
@@ -50,23 +51,12 @@ const Hero = () => {
         },
     };
 
-    const backgroundVariants = {
-        animate: {
-            backgroundPosition: ["0% 50%", "100% 50%"],
-            transition: {
-                duration: 8,
-                ease: "linear",
-                repeat: Infinity,
-                repeatType: "reverse" as const,
-            },
-        },
-    };
-
     return (
-        <motion.section
-            className="min-h-screen flex items-center justify-center bg-gradient-to-b from-primary to-primary/90 text-white p-4 bg-[length:400%_400%]"
-            variants={backgroundVariants}
-            animate="animate"
+        <WavyBackground
+            className="min-h-screen max-w-4xl mx-auto flex items-center justify-center text-white"
+            colors={["#FF61D8", "#7E69AB", "#4CC9F0", "#4361EE", "#7209B7"]}
+            waveOpacity={0.4}
+            backgroundFill="#0f172a"
         >
             <motion.div
                 className="max-w-4xl mx-auto text-center"
@@ -126,7 +116,7 @@ const Hero = () => {
                     </motion.a>
                 </motion.div>
             </motion.div>
-        </motion.section>
+        </WavyBackground>
     );
 };
 
